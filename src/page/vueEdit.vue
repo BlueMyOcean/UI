@@ -1,4 +1,4 @@
-<template>
+npm run dev<template>
     <div>
         <head-top></head-top>
         <div class="edit_container">
@@ -24,7 +24,7 @@
             return {
                 content: '<h3>文本编辑</h3>',
 			    editorOption: {
-			        
+
 		        }
             }
         },

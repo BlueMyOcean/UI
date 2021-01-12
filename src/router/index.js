@@ -7,6 +7,7 @@ const login = r => require.ensure([], () => r(require('@/page/login')), 'login')
 const manage = r => require.ensure([], () => r(require('@/page/manage')), 'manage');
 const home = r => require.ensure([], () => r(require('@/page/home')), 'home');
 const addShop = r => require.ensure([], () => r(require('@/page/addShop')), 'addShop');
+const infoChange = r => require.ensure([], () => r(require('@/page/infoChange')), 'infoChange');
 const addGoods = r => require.ensure([], () => r(require('@/page/addGoods')), 'addGoods');
 const userList = r => require.ensure([], () => r(require('@/page/userList')), 'userList');
 const shopList = r => require.ensure([], () => r(require('@/page/shopList')), 'shopList');
@@ -34,7 +35,14 @@ const routes = [
 			path: '',
 			component: home,
 			meta: [],
-		},{
+		}, {
+                path: '/infoChange',
+                component: infoChange,
+                meta:
+                    { isLogin: true}
+
+            },
+            {
 			path: '/addShop',
 			component: addShop,
 			meta: ['添加数据', '添加商铺'],

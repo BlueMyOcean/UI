@@ -4,13 +4,20 @@ import fetch from '@/config/fetch'
  * 登陆
  */
 
-export const login = data => fetch('/admin/login', data, 'POST');
+export const login = data => fetch('//localhost:8181/home/ordinary/login', data, 'POST');
+/**
+ * 注册
+ */
+
+export const register = data => fetch('//localhost:8181/home/ordinary/register', data, 'POST');
+
+// export const login = data => fetch('/admin/login', data, 'POST');
 
 /**
  * 退出
  */
 
-export const signout = () => fetch('/admin/signout');
+export const signout = () => fetch('//localhost:8181/home/ordinary/signout');
 
 /**
  * 获取用户信息

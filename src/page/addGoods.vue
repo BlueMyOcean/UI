@@ -4,12 +4,12 @@
         <el-row style="margin-top: 20px;">
   			<el-col :span="14" :offset="4">
   				<header class="form_header">选择食品种类</header>
-	  			<el-form :model="categoryForm" ref="categoryForm" label-width="110px" class="form">
+	  			<el-form :model="infoForm" ref="infoForm" label-width="110px" class="form">
 		  			<el-row class="category_select">
 		  				<el-form-item label="食品种类">
-			  				<el-select v-model="categoryForm.categorySelect" :placeholder="selectValue.label" style="width:100%;">
+			  				<el-select v-model="infoForm.categorySelect" :placeholder="selectValue.label" style="width:100%;">
 							    <el-option
-							      	v-for="item in categoryForm.categoryList"
+							      	v-for="item in infoForm.categoryList"
 							      	:key="item.value"
 							      	:label="item.label"
 							      	:value="item.value">
@@ -20,13 +20,13 @@
 					<el-row class="add_category_row" :class="showAddCategory? 'showEdit': ''">
 						<div class="add_category">
 							<el-form-item label="食品种类" prop="name">
-								<el-input v-model="categoryForm.name"></el-input>
+								<el-input v-model="infoForm.name"></el-input>
 							</el-form-item>
 							<el-form-item label="种类描述" prop="description">
-								<el-input v-model="categoryForm.description"></el-input>
+								<el-input v-model="infoForm.description"></el-input>
 							</el-form-item>
 							<el-form-item>
-								<el-button type="primary" @click="submitcategoryForm('categoryForm')">提交</el-button>
+								<el-button type="primary" @click="submitinfoForm('infoForm')">提交</el-button>
 							</el-form-item>
 						</div>
 					</el-row>
@@ -144,7 +144,7 @@
     			baseUrl,
     			baseImgPath,
     			restaurant_id: 1,
-    			categoryForm: {
+    			infoForm: {
     				categoryList: [],
     				categorySelect: '',
     				name: '',
@@ -221,7 +221,7 @@
     	},
     	computed: {
     		selectValue: function (){
-    			return this.categoryForm.categoryList[this.categoryForm.categorySelect]||{}
+    			return this.infoForm.categoryList[this.infoForm.categorySelect]||{}
     		}
     	},
     	methods: {
@@ -233,7 +233,7 @@
 	    					item.value = index;
 	    					item.label = item.name;
 	    				})
-	    				this.categoryForm.categoryList = result.category_list;
+	    				this.infoForm.categoryList = result.category_list;
 	    			}else{
 	    				console.log(result)
 	    			}
@@ -244,20 +244,20 @@
 		    addCategoryFun(){
 		    	this.showAddCategory = !this.showAddCategory;
 		    },
-		    submitcategoryForm(categoryForm) {
-				this.$refs[categoryForm].validate(async (valid) => {
+		    submitinfoForm(infoForm) {
+				this.$refs[infoForm].validate(async (valid) => {
 					if (valid) {
 						const params = {
-							name: this.categoryForm.name,
-							description: this.categoryForm.description,
+							name: this.infoForm.name,
+							description: this.infoForm.description,
 							restaurant_id: this.restaurant_id,
 						}
 						try{
 							const result = await addCategory(params);
 							if (result.status == 1) {
 								this.initData();
-								this.categoryForm.name = '';
-								this.categoryForm.description = '';
+								this.infoForm.name = '';
+								this.infoForm.description = '';
 								this.showAddCategory = false;
 								this.$message({
 					            	type: 'success',

@@ -5,20 +5,21 @@
 				<el-menu :default-active="defaultActive" style="min-height: 100%;" theme="dark" router>
 					<el-menu-item index="manage"><i class="el-icon-menu"></i>首页</el-menu-item>
 					<el-submenu index="2">
-						<template slot="title"><i class="el-icon-document"></i>数据管理</template>
-						<el-menu-item index="userList">用户列表</el-menu-item>
-						<el-menu-item index="shopList">商家列表</el-menu-item>
+						<template slot="title"><i class="el-icon-document"></i>个人数据(数据管理)</template>
+						<el-menu-item index="userList">工资账单表(用户列表)</el-menu-item>
+						<el-menu-item index="shopList">工资申请领取(商家列表)</el-menu-item>
 						<el-menu-item index="foodList">食品列表</el-menu-item>
 						<el-menu-item index="orderList">订单列表</el-menu-item>
 						<el-menu-item index="adminList">管理员列表</el-menu-item>
+                        <el-menu-item index="infoChange">修改个人信息</el-menu-item>
 					</el-submenu>
 					<el-submenu index="3">
-						<template slot="title"><i class="el-icon-plus"></i>添加数据</template>
-						<el-menu-item index="addShop">添加商铺</el-menu-item>
+						<template slot="title"><i class="el-icon-plus"></i>工资领取申请(添加数据)</template>
+						<el-menu-item index="addShop">领取工资(添加商铺)</el-menu-item>
 						<el-menu-item index="addGoods">添加商品</el-menu-item>
 					</el-submenu>
 					<el-submenu index="4">
-						<template slot="title"><i class="el-icon-star-on"></i>图表</template>
+						<template slot="title"><i class="el-icon-star-on"></i>工资流动(图表)</template>
 						<el-menu-item index="visitor">用户分布</el-menu-item>
 						<!-- <el-menu-item index="newMember">用户数据</el-menu-item> -->
 					</el-submenu>
@@ -61,6 +62,6 @@
 <style lang="less" scoped>
 	@import '../style/mixin';
 	.manage_page{
-		
+
 	}
 </style>
